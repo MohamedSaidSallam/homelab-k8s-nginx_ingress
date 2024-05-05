@@ -1,0 +1,29 @@
+ingress-nginx:
+  imagePullSecrets:
+    - name: nexus-cred
+
+  controller:
+    image:
+      registry: nexus-docker.homelab.mohamedsaidsallam.work
+
+      digest: sha256:e24f39d3eed6bcc239a56f20098878845f62baa34b9f2be2fd2c38ce9fb0f29e
+      digestChroot: sha256:c155954116b397163c88afcb3252462771bd7867017e8a17623e83601bab7ac7
+
+    service:
+      annotations:
+        metallb.universe.tf/loadBalancerIPs: 192.168.1.200
+
+    resources:
+      limits:
+        cpu: 100m
+        memory: 90Mi
+      requests:
+        cpu: 100m
+        memory: 90Mi
+
+    admissionWebhooks:
+      patch:
+        image:
+          registry: nexus-docker.homelab.mohamedsaidsallam.work
+
+          digest: sha256:36d05b4077fb8e3d13663702fa337f124675ba8667cbd949c03a8e8ea6fa4366
