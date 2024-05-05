@@ -9,4 +9,4 @@ spec:
   autoAssign: false
   avoidBuggyIPs: true
   namespaces:
-    - ingress-nginx
+    - "{{ .Release.Namespace }}"
