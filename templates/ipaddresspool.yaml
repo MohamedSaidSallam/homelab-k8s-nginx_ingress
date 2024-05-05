@@ -7,3 +7,6 @@ spec:
   addresses:
     - "{{ include "ingress-nginx.ipaddresspool.address" . }}"
   autoAssign: false
+  avoidBuggyIPs: true
+  namespaces:
+    - ingress-nginx
